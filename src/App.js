@@ -45,17 +45,54 @@ class App extends Component {
 
       //when indexValue comes back as -1 -- run sometimes y
 
+
+
       let firstVowel = vowelsArray[0]
+      let addAy = ["a","y"]
+      let addWay = "way"
       let findFirstVowelIndex = currentWord.split("").findIndex(value => {
         return "aeiou".includes(value)})
       console.log("first vowel:", firstVowel)
       console.log("findFirstVowelIndex:", findFirstVowelIndex);
-      let letterArray = currentWord.split("")
-      let wordSplice = letterArray.splice(findFirstVowelIndex, currentWord.length, )
-      console.log("moved consonants:", wordSplice, letterArray);
-      let addAy = ["a","y"]
-      let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
-      console.log("concatted word:", letterConcat);
+
+
+      if(findFirstVowelIndex === 0) {
+          console.log("Vowel concatted word:", currentWord.concat(addWay))
+      } else if(firstVowel === "u" && currentWord.split("")[0]){
+        let letterArray = currentWord.split("")
+        let wordSplice = letterArray.splice(findFirstVowelIndex + 1, currentWord.length, )
+        console.log("moved consonants:", wordSplice, letterArray);
+
+        let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+        console.log("concatted word:", letterConcat);
+        console.log("qu in pig latin:", );
+          //qu
+      } else if(findFirstVowelIndex === -1) {
+          console.log();
+          let findYIndex = currentWord.split("").findIndex(value => {
+            return "y".includes(value)})
+          let letterArray = currentWord.split("")
+          let wordSplice = letterArray.splice(findYIndex, currentWord.length, )
+          console.log("moved consonants:", wordSplice, letterArray);
+
+          let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+          console.log("concatted word:", letterConcat);
+
+          //sometimes y
+      } else {
+        let letterArray = currentWord.split("")
+        let wordSplice = letterArray.splice(findFirstVowelIndex, currentWord.length, )
+        console.log("moved consonants:", wordSplice, letterArray);
+
+        let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+        console.log("concatted word:", letterConcat);
+      }
+
+
+
+
+
+
 
 
 
