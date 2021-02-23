@@ -34,6 +34,22 @@ class App extends Component {
 
       // your code here!
 
+      //create a function with an input of myPigLatinCodeHere
+      //break down words into individual letters inside of an array (split) --that is also inside the main array. -- MAYBE???
+      //determine where FIRST vowel exists with includes?
+      //use splice to remove and store consonants (in new variable) before vowel
+          //input splice would be the first vowel index
+      //move consonant(s) to end of word that were before first vowel.
+      //add "ay" after consonants using .push or spread operator (...)
+
+      //when indexValue comes back as -1 -- run sometimes y
+
+      let firstVowel = vowelsArray[0]
+      let findFirstVowelIndex = currentWord.split("").findIndex(value => {
+        return "aeiou".includes(value)})
+      console.log("first vowel:", firstVowel)
+      console.log("findFirstVowelIndex:", findFirstVowelIndex);
+
       // Remember: console.log is your friend :)
 
 
