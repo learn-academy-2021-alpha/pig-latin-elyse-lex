@@ -33,6 +33,7 @@ class App extends Component {
       console.log("vowelsArray:", vowelsArray)
 
       // your code here!
+//CONSANTS PIG-LATIN:
 
       //create a function with an input of myPigLatinCodeHere
       //break down words into individual letters inside of an array (split) --that is also inside the main array. -- MAYBE???
@@ -50,13 +51,19 @@ class App extends Component {
       console.log("first vowel:", firstVowel)
       console.log("findFirstVowelIndex:", findFirstVowelIndex);
       let letterArray = currentWord.split("")
-      function constMove(letterArray, fromIndex, toIndex) {
-        var element = letterArray[fromIndex]
-        letterArray.splice(fromIndex,findFirstVowelIndex)
-        letterArray.splice(toIndex,letterArray.length, element)
-        return letterArray
-      }
-      console.log("moved consonants:", constMove(currentWord));
+      let wordSplice = letterArray.splice(findFirstVowelIndex, currentWord.length, )
+      console.log("moved consonants:", wordSplice, letterArray);
+      let addAy = ["a","y"]
+      let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+      console.log("concatted word:", letterConcat);
+
+
+
+//if value index is 0 -- concat "way" to the end
+
+
+//if includes "u" at first vowel - use second vowel index for splice && q is index 0
+
 
 
       // Remember: console.log is your friend :)
