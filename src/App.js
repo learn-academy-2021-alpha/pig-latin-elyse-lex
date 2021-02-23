@@ -49,6 +49,15 @@ class App extends Component {
         return "aeiou".includes(value)})
       console.log("first vowel:", firstVowel)
       console.log("findFirstVowelIndex:", findFirstVowelIndex);
+      let letterArray = currentWord.split("")
+      function constMove(letterArray, fromIndex, toIndex) {
+        var element = letterArray[fromIndex]
+        letterArray.splice(fromIndex,findFirstVowelIndex)
+        letterArray.splice(toIndex,letterArray.length, element)
+        return letterArray
+      }
+      console.log("moved consonants:", constMove(currentWord));
+
 
       // Remember: console.log is your friend :)
 
