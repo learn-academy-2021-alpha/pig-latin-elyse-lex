@@ -58,12 +58,14 @@ class App extends Component {
 
       if(findFirstVowelIndex === 0) {
           console.log("Vowel concatted word:", currentWord.concat(addWay))
-      } else if(firstVowel === "u" && currentWord.split("")[0]){
+          currentWord = currentWord.concat(addWay);
+      } else if(firstVowel === "u" && currentWord.split("")[0] === "q"){
         let letterArray = currentWord.split("")
         let wordSplice = letterArray.splice(findFirstVowelIndex + 1, currentWord.length, )
         console.log("moved consonants:", wordSplice, letterArray);
 
         let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+        currentWord = letterConcat;
         console.log("concatted word:", letterConcat);
         console.log("qu in pig latin:", );
           //qu
@@ -76,6 +78,7 @@ class App extends Component {
           console.log("moved consonants:", wordSplice, letterArray);
 
           let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+          currentWord = letterConcat;
           console.log("concatted word:", letterConcat);
 
           //sometimes y
@@ -85,6 +88,7 @@ class App extends Component {
         console.log("moved consonants:", wordSplice, letterArray);
 
         let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+        currentWord = letterConcat;
         console.log("concatted word:", letterConcat);
       }
 
@@ -126,7 +130,7 @@ class App extends Component {
     // ACTION ITEM: when you are ready for your full user experience, delete the test words in phrase so that is assigned an empty string
     this.setState({
       phrase: "alpha through yummy squeal queen fry",
-      phraseTranslated: "This is where your translated sentence will appear."
+      phraseTranslated: ({ myPigLatinCodeHere: this.state.phrase })
     })
   }
 
@@ -148,9 +152,9 @@ class App extends Component {
       <>
         <h1>Pig Latin Translator</h1>
         <img
-          src="https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400"
-          alt="pig with butcher cut names in pig latin"
-          id="butcherPig"
+          // src="https://images.unsplash.com/photo-1567201080580-bfcc97dae346?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+          // alt="happy pig"
+          // id="butcherPig"
         />
         <div id="box">
           <h4>Enter phrase to be translated:</h4>
@@ -165,9 +169,10 @@ class App extends Component {
           {/* button that called the setUpPreventDefault method which calls the myPigLatinCodeHere method */}
           <button onClick={ this.setUpPreventDefault }>Submit</button>
           <button onClick={ this.restartGame }>Clear</button>
+          <p>{ this.state.phraseTranslated }</p>
+          <footer>Coded by ~Elyse and Lex~</footer>
         </div>
-        <p>{ this.state.phraseTranslated }</p>
-        <footer>Coded by ~your name here~</footer>
+
       </>
     )
   }
