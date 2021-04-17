@@ -8,7 +8,7 @@ class App extends Component {
     this.state = {
       // "phrase" is the text entered by the user - right now there are some test words hard coded to make the process of testing your code a bit faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: "alpha through yummy squeal queen fry",
+      phrase: "",
       // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
       phraseTranslated: "This is where your translated sentence will appear."
     }
@@ -33,6 +33,86 @@ class App extends Component {
       console.log("vowelsArray:", vowelsArray)
 
       // your code here!
+//CONSANTS PIG-LATIN:
+
+      //create a function with an input of myPigLatinCodeHere
+      //break down words into individual letters inside of an array (split) --that is also inside the main array. -- MAYBE???
+      //determine where FIRST vowel exists with includes?
+      //use splice to remove and store consonants (in new variable) before vowel
+          //input splice would be the first vowel index
+      //move consonant(s) to end of word that were before first vowel.
+      //add "ay" after consonants using .push or spread operator (...)
+
+      //when indexValue comes back as -1 -- run sometimes y
+
+
+
+      let firstVowel = vowelsArray[0]
+      let addAy = ["a","y"]
+      let addWay = "way"
+      let findFirstVowelIndex = currentWord.toLowerCase().split("").findIndex(value => {
+        return "aeiou".includes(value)})
+      console.log("first vowel:", firstVowel)
+      console.log("findFirstVowelIndex:", findFirstVowelIndex);
+
+
+      // const punctuation = () => {
+      //   currentWord.includes(".,?!"){
+      //
+      // }
+      if("+_*&^%$#@~/><".includes (currentWord.split(""))){
+          alert("Errorway! Atthay isway otnay away ingstray!");
+      }else if(findFirstVowelIndex === 0) {
+        //vowel first case
+          console.log("Vowel concatted word:", currentWord.concat(addWay))
+          currentWord = currentWord.concat(addWay);
+      } else if(firstVowel === "u" && currentWord.split("")[0] === "q"){
+        //qu first case
+          let letterArray = currentWord.split("")
+          let wordSplice = letterArray.splice(findFirstVowelIndex + 1, currentWord.length, )
+          console.log("moved consonants:", wordSplice, letterArray);
+
+          let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+          currentWord = letterConcat;
+          console.log("concatted word:", letterConcat);
+          console.log("qu in pig latin:", );
+      } else if(findFirstVowelIndex === -1) {
+        //y first case
+          console.log();
+          let findYIndex = currentWord.split("").findIndex(value => {
+            return "y".includes(value)})
+          let letterArray = currentWord.split("")
+          let wordSplice = letterArray.splice(findYIndex, currentWord.length, )
+          console.log("moved consonants:", wordSplice, letterArray);
+
+          let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+          currentWord = letterConcat;
+          console.log("concatted word:", letterConcat);
+      } else{
+      //Consonant first case
+        let letterArray = currentWord.split("")
+        let wordSplice = letterArray.splice(findFirstVowelIndex, currentWord.length, )
+        console.log("moved consonants:", wordSplice, letterArray);
+
+        let letterConcat = wordSplice.concat(letterArray).concat(addAy).join("")
+        currentWord = letterConcat;
+        console.log("concatted word:", letterConcat);
+      }
+
+
+
+
+
+
+
+
+
+//if value index is 0 -- concat "way" to the end
+
+
+//if includes "u" at first vowel - use second vowel index for splice && q is index 0
+
+
 
       // Remember: console.log is your friend :)
 
@@ -56,8 +136,8 @@ class App extends Component {
     // this method restarts the game by setting the original state
     // ACTION ITEM: when you are ready for your full user experience, delete the test words in phrase so that is assigned an empty string
     this.setState({
-      phrase: "alpha through yummy squeal queen fry",
-      phraseTranslated: "This is where your translated sentence will appear."
+      phrase: "",
+      phraseTranslated: ("This is where your translated sentence will appear.")
     })
   }
 
@@ -79,9 +159,9 @@ class App extends Component {
       <>
         <h1>Pig Latin Translator</h1>
         <img
-          src="https://lh3.googleusercontent.com/QvvsRY5ShwDNEouVMK8_z7QCwS3grkgd4mzZOlom23Hurralk54ObvsyEMM8ZSNR5pEFBeBMzltzEEcgi2llYJnhXTuXClN3njmMjtw3vgn8Go5jr40fHMNzfI64eYRrnHbZUutxCA=w2400"
-          alt="pig with butcher cut names in pig latin"
-          id="butcherPig"
+          // src="https://images.unsplash.com/photo-1567201080580-bfcc97dae346?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+          // alt="happy pig"
+          // id="butcherPig"
         />
         <div id="box">
           <h4>Enter phrase to be translated:</h4>
@@ -96,9 +176,10 @@ class App extends Component {
           {/* button that called the setUpPreventDefault method which calls the myPigLatinCodeHere method */}
           <button onClick={ this.setUpPreventDefault }>Submit</button>
           <button onClick={ this.restartGame }>Clear</button>
+          <p>{ this.state.phraseTranslated }</p>
+          <footer>Coded by ~Elyse and Lex~</footer>
         </div>
-        <p>{ this.state.phraseTranslated }</p>
-        <footer>Coded by ~your name here~</footer>
+
       </>
     )
   }
