@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
 body {
+  background-image: url("https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2048&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 2em;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Architects Daughter';
   text-align: center;
+  text-shadow: 3px 6px 4px black;
+  font-size: xx-large;
 }
 
 h1 {
@@ -34,10 +41,17 @@ input {
 }
 
 #box{
-  background-color: #606060;
+  background-image: url("https://images.unsplash.com/photo-1548781518-d5f5e6a5e281?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #F8CFEF;
+  background-position: bottom;
   color: #fff;
-  border-radius: .5em;
-  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px black;
+  padding: 5%;
+  border-style: solid;
+  border-color: black;
 }
 
 
@@ -48,5 +62,16 @@ input {
     width: 90%;
     padding: 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 20px
+  }
+}
+@media only screen and (max-width: 480px) {
+  #box{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 20px
   }
 }
