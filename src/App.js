@@ -60,7 +60,16 @@ class App extends Component {
       //   currentWord.includes(".,?!"){
       //
       // }
-      if("+_*&^%$#@~/><".includes (currentWord.split(""))){
+      const punctuation = () => {
+        let has_punc = false
+        currentWord.split("").forEach(letter => {
+          if("+_*&^%$#@~/><".includes(letter)){
+            has_punc = true
+          }
+        })
+        return has_punc
+      }
+      if(punctuation() === true){
           alert("Errorway! Atthay isway otnay away ingstray!");
       }else if(findFirstVowelIndex === 0) {
         //vowel first case
